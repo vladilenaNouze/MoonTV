@@ -44,8 +44,8 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: |
-          npx wrangler pages project create moontv --production-branch main --compatibility-flags nodejs_compat || true
-          npx wrangler pages deploy .vercel/output/static --project-name=moontv --branch=main --commit-dirty=true
+          pnpm dlx wrangler@latest pages project create moontv --production-branch main --compatibility-flags nodejs_compat || true
+          pnpm dlx wrangler@latest pages deploy .vercel/output/static --project-name=moontv --branch=main --commit-dirty=true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
